@@ -16,10 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.urls.conf import include
+from django.conf.urls.static import static
+from django.conf import settings
 #from gen_protocol import urls
 
 urlpatterns = [
     path('admin/', admin.site.urls, name='admin'),
     path('', include('gen_protocol.urls')),
     #path('', include('account.urls')),
-]
+]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

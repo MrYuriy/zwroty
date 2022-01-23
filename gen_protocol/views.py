@@ -249,8 +249,9 @@ def gen_value_for_gsheet(nr_order_list):
 
         products_list_not_damage = get_order_detail(int(order.nr_order))['not_damage']
         products_list_damage = get_order_detail(int(order.nr_order))['damage']
-
-        date_writes = str(get_order_detail(int(order.nr_order))['date_writes'].date().strftime("%d.%m.%Y"))
+        # print(str(get_order_detail(int(order.nr_order))['date_writes']))
+        # print(str(get_order_detail(int(order.nr_order))['date_writes'].strftime("%d.%m.%Y")))
+        date_writes = str(get_order_detail(int(order.nr_order))['date_writes'].strftime("%d.%m.%Y"))
         #print('product list- :',products_list_not_damage)
         for sku in products_list_not_damage:
             list_row = []
