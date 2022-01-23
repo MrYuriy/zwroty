@@ -1,0 +1,23 @@
+{% extends "gen_protocol/base.html" %}
+
+{% block title %} New order {% endblock %}
+{% block content %}
+<form  action="{% url 'order_form' %}">
+    {% csrf_token %}
+    <label for="nrorde_r">Nr Order:</label>
+    <input type="number", name="nrorder", id="nrorder">
+    <br>
+    <label for="tape_of_delivery">Tape delivery:</label>
+    <select name="tape_of_delivery" id="tapydelivery">
+        <option value="P">Palet</option>
+        <option value="C">Box</option>
+    </select>
+    <br>
+    <input type="submit" value="Continue" id="continue">
+    
+</form>
+
+<script type="text/javascript" src="{{ STATIC_URL }} /static/jquery-3.6.0.min.js"> </script>
+<script type="text/javascript" src="{{ STATIC_URL }} /static/js/saveorder.js"> </script>
+
+{% endblock %}

@@ -1,0 +1,34 @@
+{% extends "gen_protocol/base.html" %}
+{% block title %} Order form {% endblock %}
+{% block content %}
+<h4>Nr Order: {{ nrorder }}</h4>
+<form action="{% url 'order_form' %}">
+    <input type="number", name="nrorder", value="{{ nrorder }}" , id="nrorder", hidden>
+
+    <label for="fname">SKU:</label>
+    <input type="number" name="sku" id="sku" autofocus=""><br>
+    <!-- <input tape='text'  id="p-text" value="Name of product">  -->
+    <p id="p-text">Name of product</p>
+    <br>
+    <!-- <input type="number" name="sku" id="user-input" autofocus=""><br> -->
+
+    <label for="fname">quantity:</label>
+    <input type="number", name="quantity" id="quantity",value=0>
+    <br>
+
+    <label for="fname">Quantity_not_damaget:</label>
+    <input type="number" name="quantity_not_damaget" id="quantity_not_damaget",value="0">
+    <br>
+    <input type="submit" value="Nexs" id="next" >
+</form>
+
+<script type="text/javascript" src="{{ STATIC_URL }} /static/jquery-3.6.0.min.js"> </script>
+<script type="text/javascript" src="{{ STATIC_URL }} /static/js/skurequest.js"> </script>
+<script type="text/javascript" src="{{ STATIC_URL }} /static/js/add_product_to_order.js"> </script>
+
+
+{% endblock %}
+
+
+
+

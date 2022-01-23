@@ -1,0 +1,13 @@
+{% extends "gen_protocol/base.html" %}
+
+{% block title %} Print protokol {% endblock %}
+{% block content %}
+    <form action="{% url 'generate_pdf_returned_products' %}" target="_blank" >
+        <input type="number", name="nrorder" id="nrorder">
+        <input type="submit" value="Generate" id='download' target="_blank">
+    </form>
+    <script type="text/javascript" src="{{ STATIC_URL }} /static/jquery-3.6.0.min.js"> </script>
+    <!-- <script type="text/javascript" src="{{ STATIC_URL }} /static/js/print_order.js"> </script> -->
+
+   
+{% endblock %}
