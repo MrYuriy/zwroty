@@ -1,1 +1,2 @@
-web: gunicorn zwrotyLM.wsgi --log-file -
+release: python manage.py migrate
+web: gunicorn test_job.wsgi --log-file -
