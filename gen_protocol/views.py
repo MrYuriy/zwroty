@@ -209,7 +209,8 @@ def generate_pdf_returned_products(request):
     #my_canvas.setFontSize(12)
     datetime_object = datetime.strptime('2022-01-06', "%Y-%m-%d").date()
 
-    list_order_today = Order.objects.filter(date_writes = date.today())#date.today() dont foget set tis pharamether
+    #list_order_today = Order.objects.filter(date_writes = date.today())#date.today() dont foget set tis pharamether
+    list_order_today = Order.objects.all()
     Y=615
     counter = 0
     for order in list_order_today:
@@ -224,6 +225,7 @@ def generate_pdf_returned_products(request):
             for product in dicts[0]:
                 if counter==21:
                     my_canvas.showPage()
+                    my_canvas.setFont('FreeSans', 12)
                     my_canvas.drawImage('static/img/returned_products_order.jpg' ,-10, 0, width=622, height=860)
                     Y=615
                     counter=0
@@ -239,6 +241,7 @@ def generate_pdf_returned_products(request):
     my_canvas.save()
     buffer.seek(0)
     return FileResponse(buffer,as_attachment=False, filename="Zwrotu_od_klientow.pdf")
+
 
 
 def gen_value_for_gsheet(nr_order_list):
