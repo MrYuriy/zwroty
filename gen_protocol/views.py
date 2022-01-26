@@ -209,8 +209,8 @@ def generate_pdf_returned_products(request):
     #my_canvas.setFontSize(12)
     datetime_object = datetime.strptime('2022-01-06', "%Y-%m-%d").date()
 
-    #list_order_today = Order.objects.filter(date_writes = date.today())#date.today() dont foget set tis pharamether
-    list_order_today = Order.objects.all()
+    list_order_today = Order.objects.filter(date_writes = date.today())#date.today() dont foget set tis pharamether
+    #list_order_today = Order.objects.all()
     Y=615
     counter = 0
     for order in list_order_today:
